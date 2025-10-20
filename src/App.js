@@ -81,7 +81,7 @@ function App() {
     <div style={{ padding: "20px" }}>
       {/* タイトル部分 */}
       <div style={{ marginBottom: "15px" }}>
-        <h2 style={{ marginBottom: "5px" }}>AIセラピストとの会話</h2>
+        <h2 style={{ marginBottom: "5px" }}>セラピストとの会話</h2>
         <p style={{ fontSize: "20px", color: "#000", marginTop: "0" }}>「こんにちは」と挨拶を送って入室を知らせてください。
         </p>
       </div>
@@ -92,7 +92,7 @@ function App() {
           .filter((msg) => msg.role !== "system")
           .map((msg, i) => (
             <div key={i}>
-              <strong>{msg.role === "user" ? "あなた" : "AIセラピスト"}:</strong> {msg.content}
+              <strong>{msg.role === "user" ? "あなた" : "セラピスト"}:</strong> {msg.content}
             </div>
           ))}
       </div>
