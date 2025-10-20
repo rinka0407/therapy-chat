@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 function App() {
   const [messages, setMessages] = useState([]);
   const [input, setInput] = useState("");
-
+　const [showDeleteButton, setShowDeleteButton] = useState(false);
   const API_KEY = process.env.REACT_APP_OPENAI_API_KEY; // ← あなたのAPIキーに置き換え
 
   const handleSend = async (newMessages) => {
@@ -54,6 +54,13 @@ function App() {
       },
     ];
     setMessages(initialMessages);
+  }, []);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setShowDeleteButton(true);
+    }, 120000); // 120000ミリ秒 = 2分
+    return () => clearTimeout(timer);
   }, []);
 
   const handleUserSend = async () => {
@@ -107,9 +114,11 @@ function App() {
       />
       <button onClick={handleUserSend}>送信</button>
       <br />
-      <button onClick={handleClear} style={{ marginTop: "10px" }}>
-        チャット内容を削除する
-      </button>
+       {showDeleteButton && (
+        <button onClick={handleClear} style={{ marginTop: "10px" }}>
+          チャット内容を削除する
+        </button>
+      )}
     </div>
   );
 }
