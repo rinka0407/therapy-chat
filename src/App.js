@@ -270,7 +270,7 @@ export default function App() {
             </button>
           </div>
           <div style={styles.auxRow}>
-            <span style={styles.hint}>Enterで送信 / Shift+Enterで改行 / 変換中は送信されません</span>
+            <span style={styles.hint}>Enterで送信 / Shift+Enterで改行 / 2分後にチャット内容削除ボタンが表示されます</span>
             {showDeleteButton && (
               <button onClick={handleClear} style={styles.deleteBtn}>チャット内容を削除する</button>
             )}
